@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data and Models
+data/
+data2016/
+data_robust_*/
+pretrained/
+snapshots/
+*.npy
+*.pth
+*.pt
+*.npz
+
+# Logs and Results
+logs/
+test_results_*/
+*.csv
+*.txt
+!requirements.txt
+
+# Unfinished and Docs
+*未完成*
+*.docx
+*.pdf
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
