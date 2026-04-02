@@ -1,13 +1,17 @@
-# test_csap_isic_v3.py
+# scripts/test.py
 
 import argparse
 import os
+import sys
+
+# Add project root to path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import numpy as np
 import torch
 import imageio
 
-from dataset_isic_v3 import ISICNpyDatasetV3
+from dataset.isic import ISICNpyDatasetV3
 from lib.csap_unet import CSAP_UNet
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

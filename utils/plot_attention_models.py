@@ -1,4 +1,8 @@
-# plot_v3_attention_models.py
+# utils/plot_attention_models.py
+
+import os
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
