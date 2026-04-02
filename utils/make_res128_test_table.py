@@ -1,4 +1,8 @@
-# make_v3_test_table.py
+# utils/make_res128_test_table.py
+
+import os
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import pandas as pd
 
 # 這裡使用 test_csap_isic_v3.py 的實際 Test 結果 (v3)

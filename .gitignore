@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.egg-info/
+dist/
+build/
 
 # Data and Models
 data/
@@ -17,6 +20,7 @@ snapshots/
 # Logs and Results
 logs/
 test_results_*/
+results/
 *.csv
 *.txt
 !requirements.txt
@@ -26,6 +30,12 @@ test_results_*/
 *.docx
 *.pdf
 
+# Images (generated figures)
+*.png
+*.jpg
+!imgs/*.jpg
+!imgs/*.png
+
 # OS generated files
 .DS_Store
 .DS_Store?
@@ -34,3 +44,9 @@ test_results_*/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

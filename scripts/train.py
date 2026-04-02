@@ -1,16 +1,20 @@
-# train_csap_isic_v3.py
+# scripts/train.py
 
 import argparse
 import os
+import sys
 from datetime import datetime
 import csv
+
+# Add project root to path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import numpy as np
 import torch
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 
-from dataset_isic_v3 import ISICNpyDatasetV3
+from dataset.isic import ISICNpyDatasetV3
 from lib.csap_unet import CSAP_UNet
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

@@ -1,4 +1,11 @@
+# scripts/make_robust_sets.py
+
 import os
+import sys
+
+# Ensure working directory is project root
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import cv2
 import numpy as np
 from tqdm import tqdm

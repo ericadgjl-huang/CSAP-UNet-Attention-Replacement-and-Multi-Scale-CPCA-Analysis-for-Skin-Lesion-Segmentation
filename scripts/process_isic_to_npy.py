@@ -1,4 +1,11 @@
+# scripts/process_isic_to_npy.py
+
 import os
+import sys
+
+# Ensure working directory is project root
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import cv2
 import numpy as np
 from glob import glob

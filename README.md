@@ -55,20 +55,89 @@
 ---
 
 ## 📂 專案檔案結構 (Project Structure)
-以下為過濾掉暫存檔與資料集後的核心程式碼結構：
 
 ```
 CSAP-UNet/
-├── lib/                        # 模型核心架構與網路定義模組
-├── dataset_isic_v3.py          # ISIC 資料集 Dataset Loader 實作
-├── train_csap_isic_v3.py       # 模型訓練主程式
-├── test_csap_isic_v3.py        # 模型推論與指標計算測試程式
-├── process_isic_to_npy_v3.py   # 資料前處理與 .npy 轉換腳本
-├── process_isic2016_to_npy.py  # ISIC 2016 測試資料轉換腳本
-├── make_robust_sets.py         # 產生高斯雜訊與低解析度測試資料之腳本
-├── measure_complexity_v3.py    # 計算參數量與 FLOPs 之測試腳本
-├── plot_*.py / make_*.py       # 繪圖與結果表格生成工具腳本
-└── .gitignore                  # Git 忽略設定擋
+├── lib/                              # 模型核心架構與網路定義模組
+│   ├── csap_unet.py                  #   CSAP-UNet 主模型
+│   ├── cpca_module.py                #   CPCA 注意力模組
+│   ├── vision_transformer.py         #   Vision Transformer 分支
+│   └── DeiT.py                       #   DeiT 預訓練權重載入
+├── dataset/                          # 資料集 Dataset 定義
+│   └── isic.py                       #   ISIC Npy Dataset Loader
+├── scripts/                          # 訓練、測試、前處理腳本
+│   ├── train.py                      #   模型訓練主程式
+│   ├── test.py                       #   模型推論與指標計算
+│   ├── process_isic_to_npy.py        #   ISIC 2017 資料前處理
+│   ├── process_isic2016_to_npy.py    #   ISIC 2016 資料前處理
+│   ├── make_robust_sets.py           #   產生雜訊/低解析度測試資料
+│   └── measure_complexity.py         #   計算參數量與 FLOPs
+├── utils/                            # 繪圖與結果表格工具
+│   ├── plot_attention_models.py      #   訓練曲線繪圖
+│   ├── make_test_table.py            #   ISIC 2017 測試結果表
+│   ├── make_2016_test_table.py       #   ISIC 2016 跨年測試結果表
+│   ├── make_gauss_test_table.py      #   高斯雜訊測試結果表
+│   ├── make_res128_test_table.py     #   低解析度測試結果表
+│   ├── make_cei_full_table.py        #   CEI 完整表格
+│   └── make_complexity_table.py      #   模型複雜度比較表
+├── data/                             # 資料集 (git ignored)
+├── pretrained/                       # 預訓練權重 (git ignored)
+├── snapshots/                        # 訓練 checkpoint (git ignored)
+├── logs/                             # 訓練日誌 (git ignored)
+├── environment.yml                   # Conda 環境設定
+├── requirements.txt                  # pip 套件需求
+├── .gitignore                        # Git 忽略設定
+└── README.md
+```
+
+---
+
+## 🚀 環境建置 (Setup)
+
+### 方法一：使用 Conda（推薦）
+```bash
+conda env create -f environment.yml
+conda activate csap-unet
+```
+
+### 方法二：使用 pip
+```bash
+pip install -r requirements.txt
+```
+
+### GPU 支援
+若需要 CUDA GPU 加速，請依照 [PyTorch 官方指引](https://pytorch.org/get-started/locally/) 安裝對應版本的 `torch` 與 `torchvision`。
+
+---
+
+## 🔄 資料準備與執行流程
+
+### 1. 下載資料集
+- [ISIC 2017 Challenge Dataset](https://challenge.isic-archive.com/data/#2017)
+- [ISIC 2016 Challenge Dataset](https://challenge.isic-archive.com/data/#2016)（跨年測試用）
+
+將資料解壓至 `data/` 與 `data2016/` 目錄。
+
+### 2. 資料前處理
+```bash
+python scripts/process_isic_to_npy.py       # ISIC 2017 轉 .npy
+python scripts/process_isic2016_to_npy.py    # ISIC 2016 轉 .npy
+python scripts/make_robust_sets.py           # 產生雜訊/低解析度測試集
+```
+
+### 3. 訓練模型
+```bash
+python scripts/train.py --version S --epochs 80 --batchsize 4 --lr 1e-4
+```
+
+### 4. 測試模型
+```bash
+python scripts/test.py --ckpt_path snapshots/<model>/best_xxx.pth --version S
+```
+
+### 5. 計算模型複雜度
+```bash
+python scripts/measure_complexity.py
 ```
 
 ---
