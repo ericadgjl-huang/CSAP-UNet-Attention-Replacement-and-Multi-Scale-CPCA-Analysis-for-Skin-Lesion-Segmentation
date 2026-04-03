@@ -151,6 +151,8 @@ python scripts/measure_complexity.py
 ## 📚 參考文獻 (References)
 * **CSAP-UNet**: Xiaodong Fan, Jing Zhou, Xiaoli Jiang, Meizhuo Xin, Limin Hou. "CSAP-UNet: Convolution and self-attention paralleling network for medical image segmentation with edge enhancement", *Computers in Biology and Medicine*, 2024.
   * [論文連結 (DOI: 10.1016/j.compbiomed.2024.108265)](https://doi.org/10.1016/j.compbiomed.2024.108265)
+* **CPCA**: Hejun Huang, Zuguo Chen, Ying Zou, Ming Lu, Chaoyang Chen. "Channel prior convolutional attention for medical image segmentation", *Computers in Biology and Medicine*, 2024.
+  * [論文連結 (ScienceDirect)](https://www.sciencedirect.com/science/article/pii/S0010482524008692)
 
 ---
 
