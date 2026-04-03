@@ -145,3 +145,15 @@ python scripts/measure_complexity.py
 
 ## 📝 結論
 本專案成功證明了將 CSAP-UNet 的 CBAM 替換為 CPCA（多尺度卷積）能有效增進醫療影像分割的效能。其中 **Hybrid-B 架構** 在運算成本不變的情況下取得最優越的精度，而模型在各種退化測試中亦展現強大的臨床應用潛力。
+
+---
+
+## 📚 參考文獻 (References)
+* **CSAP-UNet**: Xiaodong Fan, Jing Zhou, Xiaoli Jiang, Meizhuo Xin, Limin Hou. "CSAP-UNet: Convolution and self-attention paralleling network for medical image segmentation with edge enhancement", *Computers in Biology and Medicine*, 2024.
+  * [論文連結 (DOI: 10.1016/j.compbiomed.2024.108265)](https://doi.org/10.1016/j.compbiomed.2024.108265)
+
+---
+
+## 📄 專案簡報 (Presentation)
+本專案亦提供詳細的匯報簡報檔，包含了更完整的模型架構圖表與系統性的消融實驗分析。
+您可以於專案根目錄中查看或下載該檔案以了解更多細節：[`Final3_report2.pptx`](./Final3_report2.pptx)
