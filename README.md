@@ -159,3 +159,8 @@ python scripts/measure_complexity.py
 ## 📄 專案簡報 (Presentation)
 本專案亦提供詳細的匯報簡報檔，包含了更完整的模型架構圖表與系統性的消融實驗分析。
 您可以於專案根目錄中查看或下載該檔案以了解更多細節：[`Final3_report2.pptx`](./Final3_report2.pptx)
+
+---
+
+## 🙏 致謝 (Acknowledgements)
+* 特別感謝 CPCA 模組的原作者 [Cuthbert-Huang](https://github.com/Cuthbert-Huang) 提出該創新架構。本專案中的 `CPCALayer` 模組即是參考其開源專案 [CPCANet](https://github.com/Cuthbert-Huang/CPCANet) 的核心概念（Channel prior 結合多尺度 Depthwise 卷積）所實作的簡化與改良版本。
