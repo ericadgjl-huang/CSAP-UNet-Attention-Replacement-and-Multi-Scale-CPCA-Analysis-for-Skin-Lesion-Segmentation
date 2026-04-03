@@ -145,3 +145,22 @@ python scripts/measure_complexity.py
 
 ## 📝 結論
 本專案成功證明了將 CSAP-UNet 的 CBAM 替換為 CPCA（多尺度卷積）能有效增進醫療影像分割的效能。其中 **Hybrid-B 架構** 在運算成本不變的情況下取得最優越的精度，而模型在各種退化測試中亦展現強大的臨床應用潛力。
+
+---
+
+## 📚 參考文獻 (References)
+* **CSAP-UNet**: Xiaodong Fan, Jing Zhou, Xiaoli Jiang, Meizhuo Xin, Limin Hou. "CSAP-UNet: Convolution and self-attention paralleling network for medical image segmentation with edge enhancement", *Computers in Biology and Medicine*, 2024.
+  * [論文連結 (DOI: 10.1016/j.compbiomed.2024.108265)](https://doi.org/10.1016/j.compbiomed.2024.108265)
+* **CPCA**: Hejun Huang, Zuguo Chen, Ying Zou, Ming Lu, Chaoyang Chen. "Channel prior convolutional attention for medical image segmentation", *Computers in Biology and Medicine*, 2024.
+  * [論文連結 (ScienceDirect)](https://www.sciencedirect.com/science/article/pii/S0010482524008692)
+
+---
+
+## 📄 專案簡報 (Presentation)
+本專案亦提供詳細的匯報簡報檔，包含了更完整的模型架構圖表與系統性的消融實驗分析。
+您可以於專案根目錄中查看或下載該檔案以了解更多細節：[`Final3_report2.pptx`](./Final3_report2.pptx)
+
+---
+
+## 🙏 致謝 (Acknowledgements)
+* 特別感謝 CPCA 模組的原作者 [Cuthbert-Huang](https://github.com/Cuthbert-Huang) 提出該創新架構。本專案中的 `CPCALayer` 模組即是參考其開源專案 [CPCANet](https://github.com/Cuthbert-Huang/CPCANet) 的核心概念（Channel prior 結合多尺度 Depthwise 卷積）所實作的簡化與改良版本。
