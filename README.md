@@ -32,7 +32,7 @@
 
 ### 2. Hybrid 注意力架構
 * **Hybrid-A**：CNN 使用 CBAM、Transformer 使用 CPCA。
-* **Hybrid-B (最佳)**：CNN 使用 CPCA、Transformer 使用 CBAM。此配置讓 CNN 專注於 CPCA 帶來的高頻邊界增強，而 Transformer 保留原始 CBAM 的全域穩健性，形成完美互補。
+* **Hybrid-B (最佳)**：CNN 使用 CPCA、Transformer 使用 CBAM。此配置讓 CPCA 專注於 CNN 帶來的高頻邊界增強，而 CBAM 保留原始 Transformer 的全域穩健性，形成完美互補。
 
 ---
 
